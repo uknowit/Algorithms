@@ -5,6 +5,7 @@
 using namespace std;
 static int iter=0;
 static int iterSelect=0;
+static int iterInsert=0;
 int arrayDivide(int inputArr[],int leftArr[],int rightArr[],int arrSize)
 {
 	if(arrSize==1)
@@ -94,10 +95,31 @@ void selectionSortImplementation(int inputArr[],int arrSize)
 	}
 }
 
+void insertionSortImplementation(int inputArr[],int arrSize)
+{
+	int loopIndex=1,sortIndex=0;
+	for(;loopIndex<arrSize;loopIndex++)
+	{
+		sortIndex=loopIndex;
+		for(;sortIndex>0;sortIndex--)
+		{
+
+			if(inputArr[sortIndex-1]<inputArr[sortIndex])
+			{
+				inputArr[sortIndex-1]=inputArr[sortIndex-1]+inputArr[sortIndex];
+				inputArr[sortIndex]=inputArr[sortIndex-1]-inputArr[sortIndex];
+				inputArr[sortIndex-1]=inputArr[sortIndex-1]-inputArr[sortIndex];
+			}
+			iterInsert++;
+		}
+	}
+}
+
 int main()
 {
 	int inputArr[]={15,32,1,7,3,4,6,4,67,78,22,43,11};
 	int inputArr1[]={15,32,1,7,3,4,6,4,67,78,22,43,11};
+	int inputArr2[]={15,32,1,7,3,4,6,4,67,78,22,43,11};
 	size_t arrSize = sizeof(inputArr)/sizeof(inputArr[0]);
 	invokeFunction(inputArr,arrSize);
 	for (int index=0;index<arrSize;index++)
@@ -106,7 +128,11 @@ int main()
 	cout<<"======================================="<<endl;
 	selectionSortImplementation(inputArr1,10);
 	for (int index=0;index<arrSize;index++)
-			cout<<inputArr1[index]<<endl;
+		cout<<inputArr1[index]<<endl;
 	cout<<iterSelect<<endl;
-
+	cout<<"======================================="<<endl;
+	insertionSortImplementation(inputArr2,arrSize);
+	for(int index=0;index<arrSize;index++)
+		cout<<inputArr2[index]<<endl;
+	cout<<iterInsert<<endl;
 }

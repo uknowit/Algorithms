@@ -13,9 +13,10 @@
 extern "C" {
 	int arrayDivide(int inputArr[],int leftArr[],int rightArr[],int arrSize);
 	void sortAndMergeArray(int returnArr[],int leftArr[],int rightArr[],int arrSize,int leftArrSize,int rightArrSize);
-	void invokeFunction(int inputArr[],int arrSize);
-	void selectionSortImplementation(int inputArr[],int arrSize);
-	void insertionSortImplementation(int inputArr[],int arrSize);
+	int invokeFunction(int inputArr[],int arrSize);
+	int selectionSortImplementation(int inputArr[],int arrSize);
+	int insertionSortImplementation(int inputArr[],int arrSize);
+	int quickSortImplementation(int inputArr[],int arrSize);
 }
 
 

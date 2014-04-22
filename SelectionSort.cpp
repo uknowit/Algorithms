@@ -6,7 +6,8 @@
  */
 #include "CommonHeader.h"
 using namespace std;
-void selectionSortImplementation(int inputArr[],int arrSize)
+static int iter=0;
+int selectionSortImplementation(int inputArr[],int arrSize)
 {
 	cout<<"Invoking arr size "<<arrSize<<endl;
 	int loopIndex=0,sortIndex=0,maxPos=0;
@@ -20,6 +21,7 @@ void selectionSortImplementation(int inputArr[],int arrSize)
 			{
 				maxPos=sortIndex;
 			}
+			iter++;
 		}
 		if(maxPos!=loopIndex)
 		{
@@ -28,6 +30,7 @@ void selectionSortImplementation(int inputArr[],int arrSize)
 			inputArr[maxPos]=inputArr[maxPos]-inputArr[loopIndex];
 		}
 	}
+	return iter;
 }
 
 

@@ -6,8 +6,8 @@
  */
 
 #include "CommonHeader.h"
-
-void insertionSortImplementation(int inputArr[],int arrSize)
+static int iter=0;
+int insertionSortImplementation(int inputArr[],int arrSize)
 {
 	int loopIndex=1,sortIndex=0;
 	for(;loopIndex<arrSize;loopIndex++)
@@ -22,8 +22,10 @@ void insertionSortImplementation(int inputArr[],int arrSize)
 				inputArr[sortIndex]=inputArr[sortIndex-1]-inputArr[sortIndex];
 				inputArr[sortIndex-1]=inputArr[sortIndex-1]-inputArr[sortIndex];
 			}
+			iter++;
 		}
 	}
+	return iter;
 }
 
 

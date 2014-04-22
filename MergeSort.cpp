@@ -6,6 +6,7 @@
  */
 
 #include "CommonHeader.h"
+static int iter=0;
 int arrayDivide(int inputArr[],int leftArr[],int rightArr[],int arrSize)
 {
 	if(arrSize==1)
@@ -34,6 +35,7 @@ void sortAndMergeArray(int returnArr[],int leftArr[],int rightArr[],int arrSize,
 	{
 		for(int index=startIndex;index<rightArrSize;index++)
 		{
+			iter++;
 			if(leftArr[leftArrIndex] < rightArr[index])
 			{
 				returnArr[mainIndex++]=rightArr[index];
@@ -52,7 +54,7 @@ void sortAndMergeArray(int returnArr[],int leftArr[],int rightArr[],int arrSize,
 		returnArr[mainIndex++]=copyArr[i];
 }
 
-void invokeFunction(int inputArr[],int arrSize)
+int invokeFunction(int inputArr[],int arrSize)
 {
 	int midPos = arrSize/2;
 	int otherSize=arrSize-midPos;
@@ -65,6 +67,7 @@ void invokeFunction(int inputArr[],int arrSize)
 		invokeFunction(rightArr,otherSize);
 	}
 	sortAndMergeArray(inputArr,leftArr,rightArr,arrSize,midPos,otherSize);
+	return iter;
 }
 
 

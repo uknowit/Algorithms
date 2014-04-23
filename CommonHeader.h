@@ -17,6 +17,7 @@ extern "C" {
 	int selectionSortImplementation(int inputArr[],int arrSize);
 	int insertionSortImplementation(int inputArr[],int arrSize);
 	int quickSortImplementation(int inputArr[],int arrSize);
+	void resetIter();
 }
 
 

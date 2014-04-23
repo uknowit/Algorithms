@@ -14,7 +14,7 @@ int quickSortImplementation(int inputArr[],int arrSize)
 	int loopIndex=0,pivotElement=arrSize-1;
 	if(pivotElement<=0)
 		return iter;
-	for(;loopIndex<arrSize;loopIndex++)
+	for(;loopIndex<pivotElement;loopIndex++)
 	{
 		iter++;
 		if(inputArr[loopIndex]<inputArr[pivotElement])
@@ -37,7 +37,6 @@ int quickSortImplementation(int inputArr[],int arrSize)
 			loopIndex--;
 		}
 	}
-	cout<<"Pivot Element::"<<pivotElement<<endl;
 	int leftArr[pivotElement+1],rightArr[arrSize-(pivotElement+1)];
 	int leftArrIndex=0,rightArrIndex=0,arrIndex=0;
 	for(int index=0;index<arrSize;index++)
@@ -59,5 +58,8 @@ int quickSortImplementation(int inputArr[],int arrSize)
 	return iter;
 }
 
-
+void resetIter()
+{
+	iter=0;
+}
 

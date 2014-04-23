@@ -31,6 +31,7 @@ int main()
 			cout<<inputArr3[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
 	cout<<"========="<<"Quick Sort"<<"=============="<<endl;
+	resetIter();
 	rep=quickSortImplementation(inputArr4,5);
 	for(int index=0;index<5;index++)
 		cout<<inputArr4[index]<<endl;

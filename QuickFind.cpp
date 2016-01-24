@@ -17,7 +17,7 @@ int UnionFind::m_createUnion(int first, int second)
 {
     int value_to_be_replaced = m_data[first];
     int new_value = m_data[second];
-    for(int index = 0; index < m_size; index++)
+    for(int index = 0; index < F_SAMPLE_SIZE; index++)
     {
         if(m_data[index] == value_to_be_replaced)
             m_data[index] = new_value;
@@ -27,7 +27,7 @@ int UnionFind::m_createUnion(int first, int second)
 
 void UnionFind::printData()
 {
-    for(int index = 0; index < m_size; index++)
+    for(int index = 0; index <F_SAMPLE_SIZE; index++)
     {
         std::cout<<m_data[index]<<" ";
     }
@@ -36,7 +36,7 @@ void UnionFind::printData()
 
 void QuickUnion::printData()
 {
-    for(int index = 0; index < m_size; index++)
+    for(int index = 0; index < U_SAMPLE_SIZE; index++)
     {
         std::cout<<m_data[index]<<" ";
     }
@@ -45,7 +45,7 @@ void QuickUnion::printData()
 
 void QuickUnion::printSizeArray()
 {
-    for(int index = 0; index < m_size; index++)
+    for(int index = 0; index < 10; index++)
     {
         std::cout<<size_arr[index]<<" ";
     }
@@ -77,17 +77,18 @@ int QuickUnion::m_createUnion(int first, int second)
 {
     int second_root_value = find_root_value(second);
     int first_root_value = find_root_value(first);
+    //m_data[first_root_value] = second_root_value;
     if(first_root_value == second_root_value)
         return 0;
-    if(size_arr[first_root_value] <= size_arr[second_root_value])
+     if(size_arr[first_root_value] <= size_arr[second_root_value])
     {
         m_data[first_root_value] = second_root_value;
-        size_arr[second_root_value]+=1;
+        size_arr[second_root_value]+=size_arr[first_root_value];
     }
     else
     {
         m_data[second_root_value] = first_root_value;
-        size_arr[first_root_value]+=1;
+        size_arr[first_root_value]+=size_arr[second_root_value];
     }
     return 0;
 }
@@ -136,7 +137,7 @@ UnionFind* crete_union_find(const std::string& file_name)
     parse_input_file(file_name,size,&int_list);
     if(int_list != nullptr && size != 0)
     {
-        UnionFind *uFind = new UnionFind(size);
+        UnionFind *uFind = new UnionFind();
         uFind->printData();
         for(int index = 0; index < size ; index++)
         {
@@ -159,7 +160,7 @@ QuickUnion* create_quick_union(const std::string& file_name)
     parse_input_file(file_name,size,&int_list);
     if(int_list != nullptr && size != 0)
     {
-        QuickUnion *uFind = new QuickUnion(size);
+        QuickUnion *uFind = new QuickUnion();
         uFind->printData();
         for(int index = 0; index < size ; index++)
         {

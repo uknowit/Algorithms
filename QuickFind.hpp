@@ -5,7 +5,7 @@
 #include <new>
 #include <string>
 
-
+#define F_SAMPLE_SIZE 10
 typedef struct integer_pairs 
 {
     int first_number;
@@ -15,9 +15,9 @@ typedef struct integer_pairs
 class UnionFind 
 {
     public:
-            UnionFind(int size):m_size{size},m_data{new int[size]}
+            UnionFind():m_data{new int[F_SAMPLE_SIZE]}
             {
-                for(int index = 0; index < size; index++)
+                for(int index = 0; index < F_SAMPLE_SIZE; index++)
                     m_data[index] = index;
             }
             ~UnionFind(){delete[] m_data;}

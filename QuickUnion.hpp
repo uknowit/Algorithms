@@ -6,13 +6,14 @@
 #include <new>
 #include <string>
 
+#define U_SAMPLE_SIZE 10
 
 class QuickUnion 
 {
     public:
-        QuickUnion(int size):m_size(size),m_data{ new int[size]},size_arr{new int[size]}
+        QuickUnion():m_data{ new int[U_SAMPLE_SIZE]},size_arr{new int[U_SAMPLE_SIZE]}
         {
-            for(int index = 0; index < size; index++)
+            for(int index = 0; index < U_SAMPLE_SIZE; index++)
             {
                 m_data[index] = index;
                 size_arr[index] = 1; 
@@ -30,7 +31,6 @@ class QuickUnion
         void printSizeArray();
 
     private:
-        int m_size;
         int *m_data;
         int *size_arr;
 };

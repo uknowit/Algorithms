@@ -43,6 +43,14 @@ void QuickUnion::printData()
     std::cout<<std::endl;
 }
 
+void QuickUnion::printSizeArray()
+{
+    for(int index = 0; index < m_size; index++)
+    {
+        std::cout<<size_arr[index]<<" ";
+    }
+    std::cout<<std::endl;
+}
 int QuickUnion::find_root_value(int n_index)
 {
     int root_value = m_data[n_index];
@@ -69,7 +77,18 @@ int QuickUnion::m_createUnion(int first, int second)
 {
     int second_root_value = find_root_value(second);
     int first_root_value = find_root_value(first);
-    m_data[first_root_value] = second_root_value;
+    if(first_root_value == second_root_value)
+        return 0;
+    if(size_arr[first_root_value] <= size_arr[second_root_value])
+    {
+        m_data[first_root_value] = second_root_value;
+        size_arr[second_root_value]+=1;
+    }
+    else
+    {
+        m_data[second_root_value] = first_root_value;
+        size_arr[first_root_value]+=1;
+    }
     return 0;
 }
 
@@ -175,9 +194,11 @@ int main(int argc, char **argv)
     {
         uFind->printData();
     }
+    std::cout<<"========================="<<std::endl;
     if(unionPtr != nullptr)
     {
         unionPtr->printData();
+        unionPtr->printSizeArray();
     }
     delete uFind;
     return 0;

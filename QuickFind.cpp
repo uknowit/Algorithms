@@ -80,7 +80,7 @@ int QuickUnion::m_createUnion(int first, int second)
     //m_data[first_root_value] = second_root_value;
     if(first_root_value == second_root_value)
         return 0;
-     if(size_arr[first_root_value] <= size_arr[second_root_value])
+     if(size_arr[first_root_value] < size_arr[second_root_value])
     {
         m_data[first_root_value] = second_root_value;
         size_arr[second_root_value]+=size_arr[first_root_value];

@@ -12,22 +12,22 @@ int main()
 	size_t arrSize = sizeof(inputArr)/sizeof(inputArr[0]);
 	cout<<"========"<<"Merge Sort"<<"============"<<endl;
 	int rep=invokeFunction(inputArr,arrSize);
-	for (int index=0;index<arrSize;index++)
+	for (uint8_t index=0;index<arrSize;index++)
 		cout<<inputArr[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
 	cout<<"========"<<"Selection Sort"<<"=================="<<endl;
 	rep=selectionSortImplementation(inputArr1,arrSize);
-	for (int index=0;index<arrSize;index++)
+	for (uint8_t index=0;index<arrSize;index++)
 		cout<<inputArr1[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
 	cout<<"========="<<"Insertion Sort"<<"=============="<<endl;
 	rep=insertionSortImplementation(inputArr2,arrSize);
-	for(int index=0;index<arrSize;index++)
+	for(uint8_t index=0;index<arrSize;index++)
 		cout<<inputArr2[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
 	cout<<"========="<<"Quick Sort"<<"=============="<<endl;
 	rep=quickSortImplementation(inputArr3,arrSize);
-	for(int index=0;index<arrSize;index++)
+	for(uint8_t index=0;index<arrSize;index++)
 			cout<<inputArr3[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
 	cout<<"========="<<"Quick Sort"<<"=============="<<endl;

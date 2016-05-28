@@ -17,11 +17,12 @@ int arrayDivide(int inputArr[],int leftArr[],int rightArr[],int arrSize)
 		leftArr[index]=inputArr[index];
 	}
 	int internalIndex=0;
-	for(unsigned int index=midPos;index<arrSize;index++)
+	for(uint8_t index=midPos;index<arrSize;index++)
 	{
 		rightArr[internalIndex]=inputArr[index];
 		internalIndex++;
 	}
+	return 0;
 }
 
 
@@ -62,7 +63,6 @@ int invokeFunction(int inputArr[],int arrSize)
 	int retValue=arrayDivide(inputArr,leftArr,rightArr,arrSize);
 	if(retValue!=-1)
 	{
-		int leftRetArr[midPos],rightRetArr[otherSize];
 		invokeFunction(leftArr,midPos);
 		invokeFunction(rightArr,otherSize);
 	}

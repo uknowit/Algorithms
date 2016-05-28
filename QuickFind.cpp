@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
+#include <string>
 
 bool UnionFind::is_connected(int first, int second)
 {
@@ -174,7 +175,7 @@ QuickUnion* create_quick_union(const std::string& file_name)
     }
     return nullptr;
 }
-
+/*
 int main(int argc, char **argv)
 {
     std::string file_name;
@@ -203,4 +204,4 @@ int main(int argc, char **argv)
     }
     delete uFind;
     return 0;
-}
+}*/

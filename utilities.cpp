@@ -53,7 +53,7 @@ void parse_input_file(const std::string& file_name, std::vector<std::string>& to
 {
     std::fstream fs ;
     std::string line;
-    int ipair_index = 0;
+
     fs.open(file_name,std::fstream::in);
     while(std::getline(fs,line))
     {
@@ -64,7 +64,7 @@ void parse_input_file(const std::string& file_name, std::vector<std::string>& to
     }
     fs.close();
 }
-
+/*
 int main(int argc, char** argv)
 {
     std::vector<std::string> numbers;
@@ -88,4 +88,4 @@ int main(int argc, char** argv)
         std::cout<<"Peak:: "<<find_peak(trans_numbers, iteration)<<std::endl;
         std::cout<<"Iterations:: "<<iteration<<std::endl;
     }   
-}
+}*/

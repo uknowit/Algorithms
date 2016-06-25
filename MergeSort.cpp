@@ -6,68 +6,56 @@
  */
 
 #include "CommonHeader.h"
+#include <cstring>
+
 static int iter=0;
-int arrayDivide(int inputArr[],int leftArr[],int rightArr[],int arrSize)
-{
-	if(arrSize==1)
-		return -1;
-	int midPos = arrSize/2;
-	for(int index=0;index<midPos;index++)
-	{
-		leftArr[index]=inputArr[index];
-	}
-	int internalIndex=0;
-	for(uint8_t index=midPos;index<arrSize;index++)
-	{
-		rightArr[internalIndex]=inputArr[index];
-		internalIndex++;
-	}
-	return 0;
-}
 
-
-void sortAndMergeArray(int returnArr[],int leftArr[],int rightArr[],int arrSize,int leftArrSize,int rightArrSize)
+void merge_arrays(int *arr, int *left, int *right,int size)
 {
-	int mainIndex=0;
-	int copyIndex=0;
-	int startIndex=0;
-	int copyArr[rightArrSize];
-	for(int leftArrIndex=0;leftArrIndex<leftArrSize;leftArrIndex++)
-	{
-		for(int index=startIndex;index<rightArrSize;index++)
-		{
-			iter++;
-			if(leftArr[leftArrIndex] < rightArr[index])
-			{
-				returnArr[mainIndex++]=rightArr[index];
-				startIndex=index+1;
-			}
-			else if(leftArrIndex==leftArrSize-1)
-			{
-				copyArr[copyIndex++]=rightArr[index];
-			}
-			else
-				continue;
-		}
-		returnArr[mainIndex++]=leftArr[leftArrIndex];
-	}
-	for(int i=0;i<copyIndex;i++)
-		returnArr[mainIndex++]=copyArr[i];
+    int mid_point = size/2;
+    int left_index = 0, right_index = 0, arr_index =0;
+    while( left_index < mid_point && right_index < size - mid_point)
+    {
+        if(left[left_index] < right[right_index])
+        {
+            arr[arr_index++] = left[left_index++];
+        }
+        else
+        {
+            arr[arr_index++] = right[right_index++];
+        }
+        iter++;
+    }
+    
+    while(left_index < mid_point)
+    {
+        arr[arr_index++] = left[left_index++];
+        iter++;
+    }
+    
+    while(right_index < size - mid_point)
+    {
+    	iter++;
+        arr[arr_index++] = right[right_index++];
+    }
 }
 
 int invokeFunction(int inputArr[],int arrSize)
-{
-	int midPos = arrSize/2;
-	int otherSize=arrSize-midPos;
-	int leftArr[midPos],rightArr[otherSize];
-	int retValue=arrayDivide(inputArr,leftArr,rightArr,arrSize);
-	if(retValue!=-1)
-	{
-		invokeFunction(leftArr,midPos);
-		invokeFunction(rightArr,otherSize);
-	}
-	sortAndMergeArray(inputArr,leftArr,rightArr,arrSize,midPos,otherSize);
-	return iter;
+{   
+    int mid_point = size / 2 ;
+    int left[mid_point], right[size - mid_point];
+
+    if(size == 1 || size == 0)
+        return;
+    memcpy(left, arr, sizeof(left));
+    memcpy(right, arr+mid_point, sizeof(right));
+
+    merge_sort(left, mid_point);
+    merge_sort(right, size - mid_point);
+
+    merge_arrays(arr, left, right, size);
+
+    return iter;
 }
 
 

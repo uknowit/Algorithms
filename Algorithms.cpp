@@ -24,6 +24,7 @@ int main()
 	for (uint8_t index=0;index<arrSize;index++)
 		cout<<inputArr1[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
+
 	cout<<"Iterations::::"<<rep<<endl;
 	cout<<"========="<<"Insertion Sort"<<"=============="<<endl;
 	rep=insertionSortImplementation(inputArr2,arrSize);

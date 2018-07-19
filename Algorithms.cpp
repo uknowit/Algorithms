@@ -40,4 +40,5 @@ int main()
 	for(int index=0;index<5;index++)
 		cout<<inputArr4[index]<<endl;
 	cout<<"Iterations::"<<rep<<endl;
+	cout<<"Iterations::::"<<rep<<endl;
 }

@@ -55,7 +55,7 @@ def main():
     #print((newlist))
     end_time = time.time()
     print(all(newlist[i] <= newlist[i+1] for i in range(len(newlist)-1)))
-    print(end_time-start_time)     
+    print(end_time - start_time)     
     #for item in newlist:
     #    print(item, end=" ")
 

@@ -25,13 +25,13 @@ def main():
     mylist = [4, 3, 5, 2, 6, 1, 9 , 7 , 8]
     partion_list = mylist[:]
     position = len(partion_list)    
-    while position > 1:
-        position = len(partion_list)
-        position = quickpartition(mylist)
-        partion_list = mylist[:position]
-        print(position)
-        print(partion_list)
+    #while position > 1:
+    position = len(partion_list)
+    position = quickpartition(mylist)
+    partion_list = mylist[:position]
+    print(position)
+    print(partion_list)
         
     
 if __name__ == '__main__':
-    main() 
+    main()

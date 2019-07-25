@@ -46,7 +46,7 @@ def merge_sort_array(mylist):
          
     
 def main():
-    random_list = random.sample(range(1, pow(2, 32)), pow(2,23))
+    random_list = random.sample(range(1, pow(2, 22)), pow(2,20))
     print(len(random_list))
     start_time = time.time()
     #newlist = merge_sort_array(random_list)

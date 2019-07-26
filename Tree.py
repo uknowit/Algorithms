@@ -99,7 +99,32 @@ class BinaryTree():
         else:
             x_node = y_node.right
         return x_node
-        
+
+    def inorder_traversal_structure(self,x_node, y_node, z_node):
+        node_list = []
+        node_list.append(x_node)
+        node_list.append(y_node)
+        node_list.append(z_node)
+        node_list.sort()
+        a_node = node_list[0]
+        b_node = node_list[1]
+        c_node = node_list[2]
+        return node_list
+
+    def rotate_avl_tree(self, a_node, b_node, c_node, z_node, left_heavy):
+        if(child_left_heavy):
+            z_node.parent.left = b_node
+        else:
+            z_node.parent.right = b_node
+        a_node.parent = b_node # 50 ->62
+        c_node.parent = b_node # 78 ->62
+        b_node.parent = z_node.parent #62->44
+        a_node.right = b_node.left # 54
+        c_node.left = b_node.right # None
+        b_node.right = c_node # 78
+        b_node.left = a_node # 50
+    
+    
     def balance_tree(self, inserted_node):
         parent_node = inserted_node.parent
         a_node = b_node = c_node = None
@@ -125,28 +150,11 @@ class BinaryTree():
                 if y_node != None:
                     x_node  = self.get_x_node(y_node, child_left_heavy)
 
-                node_list = []
-                node_list.append(x_node)
-                node_list.append(y_node)
-                node_list.append(z_node)
-                node_list.sort()
-                a_node = node_list[0]
-                b_node = node_list[1]
-                c_node = node_list[2]
+                node_list = self.inorder_traversal_structure(x_node, y_node, z_node)
                 break    
             parent_node = parent_node.parent
         if a_node != None and b_node != None and c_node != None:
-            if(child_left_heavy):
-                z_node.parent.left = b_node
-            else:
-                z_node.parent.right = b_node
-            a_node.parent = b_node # 50 ->62
-            c_node.parent = b_node # 78 ->62
-            b_node.parent = z_node.parent #62->44
-            a_node.right = b_node.left # 54
-            c_node.left = b_node.right # None
-            b_node.right = c_node # 78
-            b_node.left = a_node # 50
+            self.rotate_avl_tree(a_node, b_node, c_node, z_node, child_left_heavy)
                 
             
     def insert_non_root_node(self, key):

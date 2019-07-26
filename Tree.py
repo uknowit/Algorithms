@@ -21,6 +21,9 @@ class Node():
     def height(self):
         return self._height
 
+    def __lt__(self, other):
+        return self.key < other.key
+    
 class AVLTree():
     
     def __init__(self):
@@ -112,30 +115,24 @@ class BinaryTree():
                 
                 left_heavy = False
                 child_left_heavy = False
+
                 if(left_height > right_height):
                     y_node = parent_node.left
                     left_heavy = True
                 else:
                     y_node = parent_node.right
+
                 if y_node != None:
                     x_node  = self.get_x_node(y_node, child_left_heavy)
-                
-                if(left_heavy and child_left_heavy):
-                    a_node = x_node
-                    b_node = y_node
-                    c_node = z_node
-                elif left_heavy  and not child_left_heavy:
-                    a_node = y_node
-                    b_node = x_node
-                    c_node = z_node
-                elif not left_heavy and child_left_heavy:
-                    a_node = z_node
-                    b_node = x_node
-                    c_node = y_node
-                else:
-                    a_node = z_node
-                    b_node = y_node
-                    c_node = x_node
+
+                node_list = []
+                node_list.append(x_node)
+                node_list.append(y_node)
+                node_list.append(z_node)
+                node_list.sort()
+                a_node = node_list[0]
+                b_node = node_list[1]
+                c_node = node_list[2]
                 break    
             parent_node = parent_node.parent
         if a_node != None and b_node != None and c_node != None:

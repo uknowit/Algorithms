@@ -16,10 +16,19 @@ class Node():
     @property
     def key(self):
         return self._key
-    
+   
+    @key.setter
+    def key(self, value):
+        self._key = key
+
     @property
     def height(self):
         return self._height
+    
+    @height.setter
+    def height(self, value):
+        self._height = value
+
 
     def __lt__(self, other):
         return self.key < other.key
@@ -68,6 +77,10 @@ class BinaryTree():
     @property
     def root(self):
         return self._root
+    
+    @root.setter
+    def root(self, value):
+        self._root = value
 
     def update_node_height(self, node):
         left_node = node.left
